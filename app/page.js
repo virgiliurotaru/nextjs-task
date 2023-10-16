@@ -7,6 +7,7 @@ export default function Home() {
         <li>Sometimes linethru doesnt work</li>
         <li>Add users and styles on posts page</li>
         <li>Comments are cached automatically. is it ok? </li>
+     <li>Clean up localStorage  </li>
       </ul>
     </main>
   );
