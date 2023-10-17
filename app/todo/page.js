@@ -6,7 +6,9 @@ import Task from "./task";
 export default function Todo() {
   const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState(
-    JSON.parse(localStorage.getItem("todoList")) || []
+    typeof window !== "undefined"
+      ? JSON.parse(window.localStorage.getItem("todoList"))
+      : []
   );
 
   const deleteTaskHandler = (id) => {
@@ -47,6 +49,7 @@ export default function Todo() {
       <button onClick={addTodoHandler} className="btn">
         Add task
       </button>
+
       <div className="mt-10">
         {!todoList.length && <p>No tasks to show</p>}
         {todoList.map((item) => {
