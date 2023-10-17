@@ -8,10 +8,13 @@ export default function Post({ post }) {
   const showCommentsHandler = () => {
     setShowComments(!showComments);
   };
+
   return (
     <div className={styles.container}>
-      <h2 className="text-2xl">{post.title}</h2>
-      <p>{post.body}</p>
+      <span className={styles.date}>2023 October 23</span>
+      <h2 className={styles.title}>{post.title}</h2>
+      <p className={styles.bodyContent}>{post.body}</p>
+
       <button className="btn" onClick={showCommentsHandler}>
         {!showComments ? "Show Comments" : "Hide Comments"}
       </button>

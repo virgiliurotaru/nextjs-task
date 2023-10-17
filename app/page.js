@@ -4,9 +4,8 @@ export default function Home() {
       <h1>Things to improve:</h1>
       <ul className="list-disc">
         <li>Clean up localStorage </li>
-        <li>Add users and styles on posts page</li>
+        <li>Add loading effect when comments are loading</li>
         <li>Comments are cached automatically. is it ok? </li>
-     <li>Clean up localStorage  </li>
       </ul>
     </main>
   );

@@ -16,12 +16,12 @@ export default function Posts() {
   console.log(posts);
 
   return (
-    <>
-      <h1 className="text-4xl text-center">POSTS PAGE</h1>
+    <main className="px-40">
+      <h1 className="text-4xl text-center mb-10">POSTS PAGE</h1>
 
       {posts.map((post) => {
         return <Post key={post.id} post={post}></Post>;
       })}
-    </>
+    </main>
   );
 }

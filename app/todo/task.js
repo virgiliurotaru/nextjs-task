@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 export default function Task({ taskTitle, deleteItem }) {
   const [isChecked, setIsChecked] = useState(false);
   const [timer, setTimer] = useState(null);
-  // Bug when trying to delete. Check box remains true for the component that remains in place
-  // problem with how i send the index
+
   useEffect(() => {
     console.log("useEffect");
-
     if (isChecked) {
       setTimer(
         setTimeout(() => {

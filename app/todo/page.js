@@ -1,6 +1,6 @@
 "use client";
 import { nanoid } from "nanoid";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Task from "./task";
 
 export default function Todo() {
@@ -10,6 +10,13 @@ export default function Todo() {
       ? JSON.parse(window.localStorage.getItem("todoList"))
       : []
   );
+  const buttonRef = useRef(null);
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      buttonRef.current.click();
+    }
+  };
 
   const deleteTaskHandler = (id) => {
     setTodoList((prevList) => {
@@ -32,22 +39,30 @@ export default function Todo() {
     setTodoList(newList);
   };
 
+  const clearTodoHandler = () => {
+    setTodoList([]);
+  };
+
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(todoList));
   }, [todoList]);
 
   return (
     <>
-      <h1 className="text-4xl text-center">TODOs PAGE</h1>
+      <h1 className="text-4xl text-center mb-10">TODOs PAGE</h1>
 
       <input
         className="input input-bordered mr-5"
+        onKeyDown={handleKeyPress}
         id="todo-input"
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
       />
-      <button onClick={addTodoHandler} className="btn">
+      <button onClick={addTodoHandler} ref={buttonRef} className="btn mr-5">
         Add task
+      </button>
+      <button onClick={clearTodoHandler} className="btn">
+        Clear All
       </button>
 
       <div className="mt-10">
