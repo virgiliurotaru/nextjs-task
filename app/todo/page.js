@@ -66,8 +66,8 @@ export default function Todo() {
       </button>
 
       <div className="mt-10">
-        {!todoList.length && <p>No tasks to show</p>}
-        {todoList.map((item) => {
+        {!todoList?.length && <p>No tasks to show</p>}
+        {todoList?.map((item) => {
           return (
             <Task
               key={item.id}
